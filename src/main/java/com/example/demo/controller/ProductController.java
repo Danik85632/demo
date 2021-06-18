@@ -22,7 +22,7 @@ public class ProductController {
     public String indexPage(Model model){
         //model.addAttribute("items", repos.findAll());
         //model.addAttribute("item", new Product());
-        return "index";
+        return "index"; //главную страницу возвращаем
     }
 
     @PostMapping
