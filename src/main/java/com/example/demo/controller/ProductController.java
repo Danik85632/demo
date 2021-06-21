@@ -40,4 +40,9 @@ public class ProductController {
     public void deleteProduct(Long id){
         productService.deleteProduct(id);
     }
+
+    @PostMapping
+    public void changeElement(Product product){
+        productService.changeElement(product);
+    }
 }
