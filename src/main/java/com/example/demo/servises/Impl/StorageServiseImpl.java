@@ -1,33 +1,36 @@
 package com.example.demo.servises.Impl;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import com.example.demo.models.Storage;
 import com.example.demo.repos.StorageRepos;
 import com.example.demo.servises.StorageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StorageServiseImpl implements StorageService {
-
     private final StorageRepos repos;
+
+    @Autowired
     public StorageServiseImpl(StorageRepos repos) {
         this.repos = repos;
     }
 
     @Override
-    public Optional<Storage> getStorageById(long id) {
-        return repos.findById(id);
+    public Storage getStorageById(long id) {
+        return repos.findById(id).orElseThrow();
     }
 
     @Override
-    public Iterable<Storage> getAllStorage() {
+    public Collection<Storage> getAllStorage() {
         return repos.findAll();
     }
 
     @Override
-    public void createStorage(Storage storage) {
-        repos.save(storage);
+    public Storage createStorage(Storage storage) {
+        return repos.save(storage);
     }
 
     @Override
@@ -36,7 +39,7 @@ public class StorageServiseImpl implements StorageService {
     }
 
     @Override
-    public void changeStorageElement(Storage storage) {
+    public void editStorage(Storage storage) {
         repos.save(storage);
     }
 }
