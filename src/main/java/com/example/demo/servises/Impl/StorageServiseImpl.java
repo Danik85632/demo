@@ -5,7 +5,9 @@ import java.util.Optional;
 import com.example.demo.models.Storage;
 import com.example.demo.repos.StorageRepos;
 import com.example.demo.servises.StorageService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StorageServiseImpl implements StorageService {
 
     private final StorageRepos repos;

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ProductController {
-
     @Autowired
     private ProductService productService;
 
@@ -31,12 +30,12 @@ public class ProductController {
         return productService.getAllProduct();
     }
 
-    @PostMapping
+    @PostMapping(path = "create")
     public void createProduct(Product product){
         productService.createProduct(product);
     }
 
-    @PostMapping
+    @PostMapping(path = "change")
     public void changeElement(Product product){
         productService.changeProductElement(product);
     }

@@ -30,12 +30,12 @@ public class StorageController {
         return storageService.getAllStorage();
     }
 
-    @PostMapping
+    @PostMapping(path = "create")
     public void createProduct(Storage storage){
         storageService.createStorage(storage);
     }
 
-    @PostMapping
+    @PostMapping(path = "change")
     public void changeElement(Storage storage){
         storageService.changeStorageElement(storage);
     }

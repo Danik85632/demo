@@ -18,7 +18,7 @@ public class Storage {
     private Integer id;
 
     @OneToMany(
-        mappedBy = "Storages",
+        mappedBy = "storage",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
