@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import com.example.demo.models.Storage;
@@ -13,35 +14,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class StorageController {
-    @Autowired
     private StorageService storageService;
 
+    @Autowired
     public StorageController(StorageService storageService) {
         this.storageService = storageService;
     }
 
-    @GetMapping(path = "byId")
-    public Optional<Storage> getProductById(long id){
+   @GetMapping("getStorageById")
+    public Storage getProductById(long id){
         return storageService.getStorageById(id);
     }
 
-    @GetMapping(path = "all")
-    public Iterable<Storage> getProduct(Model model){
+    @GetMapping(path = "getAllStorage")
+    public Collection<Storage> getProduct(Model model){
         return storageService.getAllStorage();
     }
 
-    @PostMapping(path = "create")
-    public void createProduct(Storage storage){
-        storageService.createStorage(storage);
+    @PostMapping(path = "createStorage")
+    public Storage createProduct(Storage storage){
+        return storageService.createStorage(storage);
     }
 
-    @PostMapping(path = "change")
+    @PostMapping(path = "editStorage")
     public void changeElement(Storage storage){
-        storageService.changeStorageElement(storage);
+        storageService.editStorage(storage);
     }
 
-    @DeleteMapping
-    public void deleteProduct(Long id){
+    @DeleteMapping("deleteStorage")
+    public void deleteStorage(Long id){
         storageService.deleteStorage(id);
     }
+
 }

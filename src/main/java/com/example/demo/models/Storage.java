@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Storages")
+@Table(name = "storages")
 public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,13 +23,13 @@ public class Storage {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<Product> products = new ArrayList<>();
+    private Collection<Product> products = new ArrayList<>();
 
     public Integer getId() {
         return id;
     }
 
-    public List<Product> getProducts() {
+    public Collection<Product> getProducts() {
         return products;
     }
 

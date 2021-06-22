@@ -1,16 +1,16 @@
 package com.example.demo.servises;
 
-import java.util.Optional;
+import java.util.Collection;
 import com.example.demo.models.Storage;
 
 public interface StorageService {
-    Optional<Storage> getStorageById(long Id);
+    Storage getStorageById(long Id);
 
-    Iterable<Storage> getAllStorage();
+    Collection<Storage> getAllStorage();
 
-    void createStorage(Storage storage);
+    Storage createStorage(Storage storage);
 
     void deleteStorage(Long id);
 
-    void changeStorageElement(Storage storage);
+    void editStorage(Storage storage);
 }
