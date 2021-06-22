@@ -1,9 +1,10 @@
-package com.example.demo.servises;
+package com.example.demo.servises.Impl;
 
 import java.util.Optional;
 
 import com.example.demo.models.Product;
 import com.example.demo.repos.ProductRepos;
+import com.example.demo.servises.ProductService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void changeElement(Product product) {
+    public void changeProductElement(Product product) {
         repos.save(product); //проверку и возвращать бул
     }
 }

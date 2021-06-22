@@ -21,12 +21,12 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(path = "all")
+    @GetMapping(path = "byId")
     public Optional<Product> getProductById(long id){
        return productService.getProductById(id);
     }
 
-    @GetMapping(path = "byId")
+    @GetMapping(path = "all")
     public Iterable<Product> getProduct(Model model){
         return productService.getAllProduct();
     }
@@ -36,13 +36,13 @@ public class ProductController {
         productService.createProduct(product);
     }
 
+    @PostMapping
+    public void changeElement(Product product){
+        productService.changeProductElement(product);
+    }
+
     @DeleteMapping
     public void deleteProduct(Long id){
         productService.deleteProduct(id);
-    }
-
-    @PostMapping
-    public void changeElement(Product product){
-        productService.changeElement(product);
     }
 }
