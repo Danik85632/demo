@@ -9,9 +9,9 @@ public interface StorageService {
 
     Iterable<Storage> getAllStorage();
 
-    void createStorage(Storage product);
+    void createStorage(Storage storage);
 
     void deleteStorage(Long id);
 
-    void changeStorageElement(Storage product);
+    void changeStorageElement(Storage storage);
 }
