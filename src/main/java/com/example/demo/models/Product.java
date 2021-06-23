@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private String product;
@@ -28,7 +28,7 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY)
     private Storage storage;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -48,7 +48,7 @@ public class Product {
         return storage;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

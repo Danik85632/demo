@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @OneToMany(
         mappedBy = "storage",
@@ -25,7 +25,7 @@ public class Storage {
     )
     private Collection<Product> products = new ArrayList<>();
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public class Storage {
         return products;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
