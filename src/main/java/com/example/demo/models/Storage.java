@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "storages")
 public class Storage {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToMany(
