@@ -2,23 +2,35 @@ package com.example.demo.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(nullable = false)
     private String product;
 
     @Column(nullable = false)
     private Double cost;
+
+    @Column(nullable = false)
+    private Long quality;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Storage storage;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getProduct() {
         return product;
@@ -28,7 +40,15 @@ public class Product {
         return cost;
     }
 
-    public void setId(Integer id) {
+    public Long getQuality() {
+        return quality;
+    }
+
+    public Storage getStorage() {
+        return storage;
+    }
+
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -40,7 +60,11 @@ public class Product {
         this.cost = cost;
     }
 
-    public Integer getId() {
-        return id;
+    public void setQuality(Long quality) {
+        this.quality = quality;
+    }
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
     }
 }

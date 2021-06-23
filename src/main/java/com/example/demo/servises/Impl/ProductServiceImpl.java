@@ -1,32 +1,36 @@
-package com.example.demo.servises;
+package com.example.demo.servises.Impl;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import com.example.demo.models.Product;
 import com.example.demo.repos.ProductRepos;
+import com.example.demo.servises.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl implements ProductService {
-
     private final ProductRepos repos;
+
+    @Autowired
     public ProductServiceImpl(ProductRepos repos) {
         this.repos = repos;
     }
 
     @Override
-    public Optional<Product> getProductById(long id) {
-        return repos.findById(id);
+    public Product getProductById(long id) {
+        return repos.findById(id).orElseThrow();
     }
 
     @Override
-    public Iterable<Product> getAllProduct() {
+    public Collection<Product> getAllProduct() {
         return repos.findAll();
     }
 
     @Override
-    public void createProduct(Product product) {
-        repos.save(product); //проверку и возвращать бул
+    public Product createProduct(Product product) {
+        return repos.save(product);
     }
 
     @Override
@@ -35,7 +39,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void changeElement(Product product) {
+    public void editProduct(Product product) {
         repos.save(product); //проверку и возвращать бул
     }
 }
