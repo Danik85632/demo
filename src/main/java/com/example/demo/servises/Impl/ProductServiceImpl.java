@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean createProduct(Product product) {
         var productFromDb = repos.findById(product.getId());
-        if (!productFromDb.isEmpty()) {
+        if (productFromDb.isPresent()) {
             return false;
         }
 
