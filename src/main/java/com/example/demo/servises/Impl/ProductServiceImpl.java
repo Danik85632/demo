@@ -30,7 +30,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        return repos.save(product);
+        var temp =  repos.save(product);
+        return temp;
     }
 
     @Override
