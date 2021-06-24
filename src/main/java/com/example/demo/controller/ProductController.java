@@ -32,7 +32,7 @@ public class ProductController {
     }
 
     @PostMapping("createProduct")
-    public Product createProduct(Product product){
+    public boolean createProduct(Product product){
         return productService.createProduct(product);
     }
 

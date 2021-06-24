@@ -29,9 +29,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product createProduct(Product product) {
-        var temp =  repos.save(product);
-        return temp;
+    public boolean createProduct(Product product) {
+        var productFromDb = repos.findById(product.getId());
+        if (!productFromDb.isEmpty()) {
+            return false;
+        }
+
+        repos.save(product);
+
+        return true;
     }
 
     @Override

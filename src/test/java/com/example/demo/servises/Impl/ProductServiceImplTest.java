@@ -44,11 +44,7 @@ class ProductServiceImplTest {
         product.setQuality(3L);
         product.setStorage(storage);
 
-        var createObj = service.createProduct(product);
-        var getObj = service.getProductById(100500L);
-
-        Assert.assertNotNull(createObj);
-        Assert.assertNotNull(getObj);
+        Assert.assertTrue(service.createProduct(product));
 
     }
 

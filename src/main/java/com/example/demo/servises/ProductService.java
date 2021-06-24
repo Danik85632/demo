@@ -8,7 +8,7 @@ public interface ProductService {
 
     Collection<Product> getAllProduct();
 
-    Product createProduct(Product product);
+    boolean createProduct(Product product);
 
     void deleteProduct(Long id);
 
