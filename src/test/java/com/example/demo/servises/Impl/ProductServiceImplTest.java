@@ -9,6 +9,7 @@ import com.example.demo.repos.ProductRepos;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -45,7 +46,7 @@ class ProductServiceImplTest {
         product.setStorage(storage);
 
         Assert.assertTrue(service.createProduct(product));
-
+        Mockito.verify(repos, Mockito.times(1)).save(product);
     }
 
     @Test
